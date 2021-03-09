@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CoinbasePlansApplication
+class Application
 
 fun main(args: Array<String>) {
-    runApplication<CoinbasePlansApplication>(*args)
+    runApplication<Application>(*args)
 }
