@@ -1,3 +1,4 @@
 .gradle/
 build/
 out/
+/github-registry-token.txt

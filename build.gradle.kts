@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.4.3"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("com.google.cloud.tools.jib") version "2.3.0"
     kotlin("jvm") version "1.4.30"
     kotlin("plugin.spring") version "1.4.30"
 }
@@ -32,4 +33,17 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+jib {
+    from {
+        image = "openjdk:14-alpine"
+    }
+    to {
+        image = "docker.pkg.github.com/gerschtli/coinbase-plans/coinbase-plans:latest"
+        auth {
+            username = "Gerschtli"
+            password = File("github-registry-token.txt").readText(Charsets.UTF_8).trim()
+        }
+    }
 }
