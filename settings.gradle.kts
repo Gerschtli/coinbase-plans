@@ -1,1 +1,1 @@
-rootProject.name = "plans"
+rootProject.name = "coinbase-plans"
