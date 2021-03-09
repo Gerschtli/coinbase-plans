@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class CoinbasePlansApplication
 
 fun main(args: Array<String>) {
-	runApplication<CoinbasePlansApplication>(*args)
+    runApplication<CoinbasePlansApplication>(*args)
 }
