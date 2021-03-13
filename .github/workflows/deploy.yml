@@ -28,9 +28,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build and push docker image
-        run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" > github-registry-token.txt
-          ./gradlew jib
+        run: ./gradlew jib
 
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.

@@ -1,0 +1,4 @@
+{
+  # token to read from github docker registry
+  GITHUB_TOKEN = "";
+}

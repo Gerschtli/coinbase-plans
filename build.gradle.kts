@@ -43,7 +43,7 @@ jib {
         image = "docker.pkg.github.com/gerschtli/coinbase-plans/coinbase-plans:latest"
         auth {
             username = "Gerschtli"
-            password = File("github-registry-token.txt").readText(Charsets.UTF_8).trim()
+            password = System.getenv("GITHUB_TOKEN")
         }
     }
 }
