@@ -10,7 +10,7 @@ plugins {
 
 group = "de.tobiashapp.coinbase"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_14
+java.sourceCompatibility = JavaVersion.VERSION_15
 
 repositories {
     mavenCentral()
@@ -28,7 +28,7 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "14"
+        jvmTarget = "15"
     }
 }
 
@@ -38,7 +38,7 @@ tasks.withType<Test> {
 
 jib {
     from {
-        image = "openjdk:14-alpine"
+        image = "openjdk:15-alpine"
     }
     to {
         image = "docker.pkg.github.com/gerschtli/coinbase-plans/coinbase-plans:latest"
