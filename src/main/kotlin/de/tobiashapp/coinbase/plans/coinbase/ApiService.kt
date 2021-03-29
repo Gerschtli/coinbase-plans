@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
 @Service
-class ApiService(val orderService: OrderService) {
+class ApiService(private val orderService: OrderService) {
     companion object {
-        val log: Logger = LoggerFactory.getLogger(ApiService::class.java)
+        private val log: Logger = LoggerFactory.getLogger(ApiService::class.java)
     }
 
     @Throws(CoinbaseExchangeException::class)
