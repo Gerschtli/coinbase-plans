@@ -1,31 +1,37 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.4.3"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("com.google.cloud.tools.jib") version "2.3.0"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.springframework.boot") version "2.4.3"
     kotlin("jvm") version "1.4.30"
+    kotlin("kapt") version "1.4.30"
     kotlin("plugin.spring") version "1.4.30"
 }
 
 group = "de.tobiashapp.coinbase"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_15
+kapt.includeCompileClasspath = false
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-mail")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-configuration-processor")
     implementation("com.icegreen:greenmail-junit5:1.6.3")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.mapstruct:mapstruct:1.4.2.Final")
+    implementation("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+
     implementation(files("libs/coinbase-pro-java-0.11.0-all.jar"))
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
+    kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.0.0")

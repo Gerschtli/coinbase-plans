@@ -1,7 +1,7 @@
 package de.tobiashapp.coinbase.plans
 
 import de.tobiashapp.coinbase.plans.config.AppProperties
-import de.tobiashapp.coinbase.plans.runner.PlanExecution
+import de.tobiashapp.coinbase.plans.runner.PlanConverter
 import de.tobiashapp.coinbase.plans.runner.PlanRunner
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct
 class Scheduler(
     private val appProperties: AppProperties,
     private val taskScheduler: TaskScheduler,
+    private val planConverter: PlanConverter,
     private val planRunner: PlanRunner,
 ) {
     companion object {
@@ -31,13 +32,9 @@ class Scheduler(
 
             taskScheduler.schedule(
                 {
-                    val planExecution = PlanExecution(
-                        plan.amount,
-                        plan.cryptoCurrency,
-                        plan.fiatCurrency,
-                        plan.receiverAddress
+                    planRunner.run(
+                        planConverter.convertToPlanExecution(plan)
                     )
-                    planRunner.run(planExecution)
                 },
                 CronTrigger(plan.cron)
             )
