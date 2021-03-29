@@ -3,6 +3,8 @@ package de.tobiashapp.coinbase.plans.coinbase
 import com.coinbase.exchange.api.orders.OrderService
 import de.tobiashapp.coinbase.plans.config.CoinbaseConfig
 import de.tobiashapp.coinbase.plans.config.JacksonConfig
+import de.tobiashapp.coinbase.plans.models.CryptoCurrency
+import de.tobiashapp.coinbase.plans.models.FiatCurrency
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
