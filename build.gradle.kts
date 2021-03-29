@@ -26,6 +26,7 @@ dependencies {
     implementation(files("libs/coinbase-pro-java-0.11.0-all.jar"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.0.0")
 }
 
 tasks.withType<KotlinCompile> {
