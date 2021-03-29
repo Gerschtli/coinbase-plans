@@ -5,7 +5,9 @@ import de.tobiashapp.coinbase.plans.coinbase.ApiService
 import de.tobiashapp.coinbase.plans.mail.MailService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.stereotype.Service
 
+@Service
 class PlanRunner(
     private val apiService: ApiService,
     private val mailService: MailService,
