@@ -18,15 +18,13 @@ class ApiServiceTest {
 
     @Test
     fun `buyCrypto creates a market order`() {
-        val orderId = apiService.buyCrypto(CryptoCurrency.BTC, FiatCurrency.EUR, BigDecimal(10))
+        val orderId = apiService.buyCrypto(CryptoCurrency.BTC, FiatCurrency.USD, BigDecimal(10))
 
         val responseFilled = orderService.getFillByOrderId(orderId, 10)
 
-        println(responseFilled[0])
         assertAll(
             { assertThat(responseFilled).hasSize(1) },
-            { assertThat(responseFilled[0].price).isEqualTo(10) },
-            { assertThat(responseFilled[0].product_id).isEqualTo("BTC-EUR") },
+            { assertThat(responseFilled[0].product_id).isEqualTo("BTC-USD") },
             { assertThat(responseFilled[0].settled).isEqualTo(true) },
             { assertThat(responseFilled[0].side).isEqualTo("buy") },
         )

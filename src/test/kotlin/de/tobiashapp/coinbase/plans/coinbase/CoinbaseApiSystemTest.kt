@@ -18,14 +18,14 @@ class CoinbaseApiSystemTest {
         // create market order
         val newMarketOrderSingle = NewMarketOrderSingle()
         newMarketOrderSingle.side = "buy"
-        newMarketOrderSingle.product_id = "BTC-EUR"
+        newMarketOrderSingle.product_id = "BTC-USD"
         newMarketOrderSingle.funds = "10"
         val responsePostOrders = orderService.createOrder(newMarketOrderSingle)
 
         assertAll(
             { assertThat(responsePostOrders.type).isEqualTo("market") },
             { assertThat(responsePostOrders.side).isEqualTo("buy") },
-            { assertThat(responsePostOrders.product_id).isEqualTo("BTC-EUR") },
+            { assertThat(responsePostOrders.product_id).isEqualTo("BTC-USD") },
         )
 
         // test filled order
