@@ -2,6 +2,7 @@ package de.tobiashapp.coinbase.plans.coinbase
 
 import com.coinbase.exchange.api.orders.OrderService
 import de.tobiashapp.coinbase.plans.config.CoinbaseConfig
+import de.tobiashapp.coinbase.plans.config.CoinbaseProperties
 import de.tobiashapp.coinbase.plans.config.JacksonConfig
 import de.tobiashapp.coinbase.plans.models.CryptoCurrency
 import de.tobiashapp.coinbase.plans.models.FiatCurrency
@@ -9,11 +10,13 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.autoconfigure.json.JsonTest
 import org.springframework.test.context.ContextConfiguration
 import java.math.BigDecimal
 
 @JsonTest
+@EnableConfigurationProperties(value = [CoinbaseProperties::class])
 @ContextConfiguration(classes = [CoinbaseConfig::class, JacksonConfig::class, ApiService::class])
 class ApiServiceTest {
     @Autowired

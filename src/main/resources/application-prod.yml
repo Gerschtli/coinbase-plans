@@ -1,0 +1,14 @@
+app:
+  coinbase:
+    base-url: https://api.pro.coinbase.com
+  mail:
+    sender: ${APP_MAIL_SENDER}
+
+spring:
+  mail:
+    host: ${APP_MAIL_HOST}
+    password: ${APP_MAIL_PASSWORD}
+    port: 587
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+    username: ${APP_MAIL_USERNAME}

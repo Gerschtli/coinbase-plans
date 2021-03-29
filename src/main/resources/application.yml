@@ -1,0 +1,5 @@
+app:
+  coinbase:
+    api-key: ${APP_COINBASE_AUTH_API_KEY}
+    passphrase: ${APP_COINBASE_AUTH_PASSPHRASE}
+    secret: ${APP_COINBASE_AUTH_SECRET}

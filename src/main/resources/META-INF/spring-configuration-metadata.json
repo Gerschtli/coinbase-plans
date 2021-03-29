@@ -1,0 +1,9 @@
+{
+  "groups": [
+    {
+      "name": "app.coinbase",
+      "type": "de.tobiashapp.coinbase.plans.config.CoinbaseProperties",
+      "sourceType": "de.tobiashapp.coinbase.plans.config.CoinbaseProperties"
+    }
+  ]
+}
