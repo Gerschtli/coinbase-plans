@@ -1,14 +1,18 @@
 package de.tobiashapp.coinbase.plans.coinbase
 
 import com.coinbase.exchange.api.orders.OrderService
+import de.tobiashapp.coinbase.plans.config.CoinbaseConfig
+import de.tobiashapp.coinbase.plans.config.JacksonConfig
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.json.JsonTest
+import org.springframework.test.context.ContextConfiguration
 import java.math.BigDecimal
 
-@SpringBootTest
+@JsonTest
+@ContextConfiguration(classes = [CoinbaseConfig::class, JacksonConfig::class, ApiService::class])
 class ApiServiceTest {
     @Autowired
     lateinit var apiService: ApiService

@@ -1,28 +1,15 @@
 package de.tobiashapp.coinbase.plans.mail
 
-import com.icegreen.greenmail.configuration.GreenMailConfiguration
-import com.icegreen.greenmail.junit5.GreenMailExtension
 import com.icegreen.greenmail.util.GreenMailUtil
-import com.icegreen.greenmail.util.ServerSetupTest
+import de.tobiashapp.coinbase.plans.GreenMailBaseTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
-import org.junit.jupiter.api.extension.RegisterExtension
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest
-@ActiveProfiles("dev")
-internal class MailServiceTest {
-    companion object {
-        @JvmField
-        @RegisterExtension
-        val greenMail: GreenMailExtension = GreenMailExtension(ServerSetupTest.SMTP)
-            .withConfiguration(GreenMailConfiguration.aConfig().withUser("username", "password"))
-            .withPerMethodLifecycle(false)
-    }
-
+internal class MailServiceTest : GreenMailBaseTest() {
     @Autowired
     lateinit var mailService: MailService
 
