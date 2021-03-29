@@ -29,6 +29,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.0.0")
+    testImplementation("org.awaitility:awaitility-kotlin:4.0.3")
 }
 
 tasks.withType<KotlinCompile> {
