@@ -1,12 +1,8 @@
 package de.tobiashapp.coinbase.plans.config
 
-import com.coinbase.exchange.api.accounts.AccountService
-import com.coinbase.exchange.api.deposits.DepositService
 import com.coinbase.exchange.api.exchange.CoinbaseExchange
 import com.coinbase.exchange.api.exchange.CoinbaseExchangeImpl
 import com.coinbase.exchange.api.orders.OrderService
-import com.coinbase.exchange.api.transfers.TransferService
-import com.coinbase.exchange.api.withdrawals.WithdrawalsService
 import com.coinbase.exchange.security.Signature
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Value
@@ -32,27 +28,7 @@ class CoinbaseConfig {
     }
 
     @Bean
-    fun accountService(exchange: CoinbaseExchange): AccountService {
-        return AccountService(exchange)
-    }
-
-    @Bean
-    fun depositService(exchange: CoinbaseExchange): DepositService {
-        return DepositService(exchange)
-    }
-
-    @Bean
     fun orderService(exchange: CoinbaseExchange): OrderService {
         return OrderService(exchange)
-    }
-
-    @Bean
-    fun transferService(exchange: CoinbaseExchange): TransferService {
-        return TransferService(exchange)
-    }
-
-    @Bean
-    fun withdrawalsService(exchange: CoinbaseExchange): WithdrawalsService {
-        return WithdrawalsService(exchange)
     }
 }

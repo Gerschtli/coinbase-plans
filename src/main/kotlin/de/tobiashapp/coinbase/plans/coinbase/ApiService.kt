@@ -28,28 +28,6 @@ class ApiService(val orderService: OrderService) {
         return response.id
     }
 
-    @Throws(CoinbaseExchangeException::class)
-    fun getFills(cryptoCurrency: CryptoCurrency, fiatCurrency: FiatCurrency, count: Int): List<Fill> {
-        val productId = buildProductId(cryptoCurrency, fiatCurrency)
-
-        log.info("Fetch fills for {} (count {})", productId, count)
-
-        val fills = orderService.getFillsByProductId(productId, count)
-
-        return fills.map {
-            Fill(
-                it.created_at,
-                cryptoCurrency,
-                it.fee,
-                fiatCurrency,
-                it.order_id,
-                it.price,
-                it.settled,
-                it.size,
-            )
-        }
-    }
-
     private fun buildProductId(cryptoCurrency: CryptoCurrency, fiatCurrency: FiatCurrency) =
         "${cryptoCurrency.name}-${fiatCurrency.name}"
 }
