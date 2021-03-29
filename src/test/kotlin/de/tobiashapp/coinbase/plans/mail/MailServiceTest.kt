@@ -1,7 +1,7 @@
 package de.tobiashapp.coinbase.plans.mail
 
 import com.icegreen.greenmail.util.GreenMailUtil
-import de.tobiashapp.coinbase.plans.GreenMailBaseTest
+import de.tobiashapp.coinbase.plans.IntegrationBaseTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-internal class MailServiceTest : GreenMailBaseTest() {
+internal class MailServiceTest : IntegrationBaseTest() {
     @Autowired
     lateinit var mailService: MailService
 
