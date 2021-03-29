@@ -1,9 +1,0 @@
-{
-  # token to read from github docker registry
-  GITHUB_TOKEN = "";
-
-  # api credentials for coinbase account
-  APP_COINBASE_AUTH_API_KEY = "";
-  APP_COINBASE_AUTH_PASSPHRASE = "";
-  APP_COINBASE_AUTH_SECRET = "";
-}

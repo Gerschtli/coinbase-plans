@@ -1,14 +1,11 @@
 with import <nixpkgs> { };
 
-mkShell (
-  {
-    name = "coinbase-plans";
+mkShell {
+  name = "coinbase-plans";
 
-    buildInputs = [
-      jdk14
-    ];
+  buildInputs = [
+    jdk15
+  ];
 
-    JAVA_HOME = "${jdk14}/lib/openjdk";
-  }
-  // import ./env-vars.nix
-)
+  JAVA_HOME = "${jdk15}/lib/openjdk";
+}
