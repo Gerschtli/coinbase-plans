@@ -31,6 +31,7 @@ jobs:
           APP_COINBASE_AUTH_API_KEY: ${{ secrets.APP_COINBASE_AUTH_API_KEY }}
           APP_COINBASE_AUTH_PASSPHRASE: ${{ secrets.APP_COINBASE_AUTH_PASSPHRASE }}
           APP_COINBASE_AUTH_SECRET: ${{ secrets.APP_COINBASE_AUTH_SECRET }}
+          SPRING_PROFILES_ACTIVE: dev
 
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
