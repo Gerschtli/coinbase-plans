@@ -2,8 +2,8 @@ package de.tobiashapp.coinbase.plans.coinbase
 
 import com.coinbase.exchange.api.orders.OrderService
 import com.coinbase.exchange.model.NewMarketOrderSingle
+import de.tobiashapp.coinbase.plans.config.AppProperties
 import de.tobiashapp.coinbase.plans.config.CoinbaseConfig
-import de.tobiashapp.coinbase.plans.config.CoinbaseProperties
 import de.tobiashapp.coinbase.plans.config.JacksonConfig
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.json.JsonTest
 import org.springframework.test.context.ContextConfiguration
 
 @JsonTest
-@EnableConfigurationProperties(value = [CoinbaseProperties::class])
+@EnableConfigurationProperties(value = [AppProperties::class])
 @ContextConfiguration(classes = [CoinbaseConfig::class, JacksonConfig::class])
 class CoinbaseApiSystemTest {
     @Autowired

@@ -11,20 +11,20 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class CoinbaseConfig {
     @Bean
-    fun signature(coinbaseProperties: CoinbaseProperties): Signature {
-        return Signature(coinbaseProperties.secret)
+    fun signature(appProperties: AppProperties): Signature {
+        return Signature(appProperties.coinbase.secret)
     }
 
     @Bean
     fun coinbasePro(
-        coinbaseProperties: CoinbaseProperties,
+        appProperties: AppProperties,
         signature: Signature,
         objectMapper: ObjectMapper,
     ): CoinbaseExchange {
         return CoinbaseExchangeImpl(
-            coinbaseProperties.apiKey,
-            coinbaseProperties.passphrase,
-            coinbaseProperties.baseUrl,
+            appProperties.coinbase.apiKey,
+            appProperties.coinbase.passphrase,
+            appProperties.coinbase.baseUrl,
             signature,
             objectMapper,
         )

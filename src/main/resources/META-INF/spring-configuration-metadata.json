@@ -1,14 +1,9 @@
 {
   "groups": [
     {
-      "name": "app.coinbase",
-      "type": "de.tobiashapp.coinbase.plans.config.CoinbaseProperties",
-      "sourceType": "de.tobiashapp.coinbase.plans.config.CoinbaseProperties"
-    },
-    {
-      "name": "app.mail",
-      "type": "de.tobiashapp.coinbase.plans.config.MailProperties",
-      "sourceType": "de.tobiashapp.coinbase.plans.config.MailProperties"
+      "name": "app",
+      "type": "de.tobiashapp.coinbase.plans.config.AppProperties",
+      "sourceType": "de.tobiashapp.coinbase.plans.config.AppProperties"
     }
   ]
 }
