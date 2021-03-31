@@ -46,8 +46,8 @@ class PlanRunner(
             "[Coinbase Plans] ${planExecution.amount} ${planExecution.fiatCurrency} to " +
                     "${planExecution.cryptoCurrency} $statusText",
             "Hello there,\n\n" +
-                    "${planExecution.amount} ${planExecution.fiatCurrency} to ${planExecution.cryptoCurrency} " +
-                    "$statusText!\n\n$additionalInfo",
+                    "Buy plan for ${planExecution.amount} ${planExecution.fiatCurrency} to " +
+                    "${planExecution.cryptoCurrency} $statusText!\n\n$additionalInfo",
         )
     }
 }

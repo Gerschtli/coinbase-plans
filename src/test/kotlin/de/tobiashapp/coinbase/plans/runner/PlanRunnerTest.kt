@@ -37,7 +37,7 @@ class PlanRunnerTest {
             "receiver",
             "[Coinbase Plans] 10 EUR to BTC succeeded",
             "Hello there,\n\n" +
-                    "10 EUR to BTC succeeded!\n\n" +
+                    "Buy plan for 10 EUR to BTC succeeded!\n\n" +
                     "Order ID: 123-abc"
         )
         verifyNoMoreInteractions(mailService)
@@ -53,7 +53,7 @@ class PlanRunnerTest {
             "receiver",
             "[Coinbase Plans] 10 EUR to BTC failed",
             "Hello there,\n\n" +
-                    "10 EUR to BTC failed!\n\n" +
+                    "Buy plan for 10 EUR to BTC failed!\n\n" +
                     "Error message: message"
         )
         verifyNoMoreInteractions(mailService)
