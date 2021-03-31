@@ -41,3 +41,5 @@ Following environment variables are necessary:
 
 The API key needs to be created manually on <https://pro.coinbase.com/> with View and Trade permissions. The mail
 service needs to be available for SMTPS with TLS.
+
+Or mount YAML config file in `/config/application-prod.yml`.

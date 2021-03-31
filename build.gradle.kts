@@ -53,6 +53,9 @@ tasks.withType<Test> {
 }
 
 jib {
+    container {
+        workingDirectory = "/config"
+    }
     from {
         image = "openjdk:15-alpine"
     }
