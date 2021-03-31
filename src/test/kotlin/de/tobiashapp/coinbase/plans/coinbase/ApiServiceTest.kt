@@ -5,6 +5,7 @@ import de.tobiashapp.coinbase.plans.IntegrationBaseTest
 import de.tobiashapp.coinbase.plans.models.CryptoCurrency
 import de.tobiashapp.coinbase.plans.models.FiatCurrency
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.withinPercentage
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.springframework.beans.factory.annotation.Autowired
@@ -28,6 +29,10 @@ class ApiServiceTest : IntegrationBaseTest() {
             { assertThat(responseFilled[0].product_id).isEqualTo("BTC-USD") },
             { assertThat(responseFilled[0].settled).isEqualTo(true) },
             { assertThat(responseFilled[0].side).isEqualTo("buy") },
+            {
+                val fiatValue = responseFilled[0].price * responseFilled[0].size + responseFilled[0].fee
+                assertThat(fiatValue).isCloseTo(BigDecimal(10), withinPercentage(0.005))
+            },
         )
     }
 }
