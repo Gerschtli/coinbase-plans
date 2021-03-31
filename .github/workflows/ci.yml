@@ -67,6 +67,8 @@ jobs:
 
       - name: Build and push docker image
         run: ./gradlew jib
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
