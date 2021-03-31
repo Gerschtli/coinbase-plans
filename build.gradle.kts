@@ -1,9 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.google.cloud.tools.jib") version "2.3.0"
+    id("com.github.ben-manes.versions") version "0.38.0"
+    id("com.google.cloud.tools.jib") version "2.8.0"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    id("org.springframework.boot") version "2.4.3"
+    id("org.springframework.boot") version "2.4.4"
+    id("se.patrikerdes.use-latest-versions") version "0.2.15"
     kotlin("jvm") version "1.4.30"
     kotlin("kapt") version "1.4.30"
     kotlin("plugin.spring") version "1.4.30"
