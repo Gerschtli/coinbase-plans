@@ -29,6 +29,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.0.6")
 
     implementation(files("libs/coinbase-pro-java-0.11.0-all.jar"))
 

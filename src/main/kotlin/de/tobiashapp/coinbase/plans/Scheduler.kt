@@ -3,12 +3,13 @@ package de.tobiashapp.coinbase.plans
 import de.tobiashapp.coinbase.plans.config.AppProperties
 import de.tobiashapp.coinbase.plans.runner.PlanConverter
 import de.tobiashapp.coinbase.plans.runner.PlanRunner
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import mu.KotlinLogging
 import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.support.CronTrigger
 import org.springframework.stereotype.Component
 import javax.annotation.PostConstruct
+
+private val LOG = KotlinLogging.logger {}
 
 @Component
 class Scheduler(
@@ -17,10 +18,6 @@ class Scheduler(
     private val planConverter: PlanConverter,
     private val planRunner: PlanRunner,
 ) {
-    companion object {
-        private val log: Logger = LoggerFactory.getLogger(Scheduler::class.java)
-    }
-
     @PostConstruct
     fun schedulePlans() {
         if (appProperties.plans == null) {
@@ -28,7 +25,7 @@ class Scheduler(
         }
 
         for (plan in appProperties.plans) {
-            log.info("Schedule plan for {}", plan)
+            LOG.info("Schedule plan for {}", plan)
 
             taskScheduler.schedule(
                 {

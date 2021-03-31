@@ -5,20 +5,17 @@ import com.coinbase.exchange.api.orders.OrderService
 import com.coinbase.exchange.model.NewMarketOrderSingle
 import de.tobiashapp.coinbase.plans.models.CryptoCurrency
 import de.tobiashapp.coinbase.plans.models.FiatCurrency
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
+private val LOG = KotlinLogging.logger {}
+
 @Service
 class ApiService(private val orderService: OrderService) {
-    companion object {
-        private val log: Logger = LoggerFactory.getLogger(ApiService::class.java)
-    }
-
     @Throws(CoinbaseExchangeException::class)
     fun buyCrypto(cryptoCurrency: CryptoCurrency, fiatCurrency: FiatCurrency, amount: BigDecimal): String {
-        log.info("Create market order: buy {} for {} {}", cryptoCurrency, amount, fiatCurrency)
+        LOG.info("Create market order: buy {} for {} {}", cryptoCurrency, amount, fiatCurrency)
 
         val newMarketOrderSingle = NewMarketOrderSingle()
         newMarketOrderSingle.side = "buy"
