@@ -20,6 +20,7 @@ import java.time.Duration
     "app.plans[0].crypto-currency=BTC",
     "app.plans[0].fiat-currency=EUR",
     "app.plans[0].receiver-address=receiver",
+    "app.plans[0].time-zone=Europe/Berlin",
 ])
 class SchedulerTest : IntegrationBaseTest() {
     @MockBean

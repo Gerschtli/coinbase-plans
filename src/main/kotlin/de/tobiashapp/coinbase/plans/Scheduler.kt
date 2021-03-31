@@ -7,6 +7,7 @@ import mu.KotlinLogging
 import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.support.CronTrigger
 import org.springframework.stereotype.Component
+import java.util.TimeZone
 import javax.annotation.PostConstruct
 
 private val LOG = KotlinLogging.logger {}
@@ -33,7 +34,7 @@ class Scheduler(
                         planConverter.convertToPlanExecution(plan)
                     )
                 },
-                CronTrigger(plan.cron)
+                CronTrigger(plan.cron, TimeZone.getTimeZone(plan.timeZone))
             )
         }
     }

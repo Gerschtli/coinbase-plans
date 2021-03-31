@@ -29,4 +29,5 @@ data class PlanProperties(
     val cryptoCurrency: CryptoCurrency,
     val fiatCurrency: FiatCurrency,
     val receiverAddress: String,
+    val timeZone: String,
 )
